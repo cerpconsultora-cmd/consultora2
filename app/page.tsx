@@ -1,19 +1,11 @@
-import Hero from "@/components/Hero";
-import Problems from "@/components/Problems";
-import Services from "@/components/Services";
-import Process from "@/components/Process";
-import ContactForm from "@/components/ContactForm";
-import CTA from "@/components/CTA";
+import { Metadata } from "next";
+import ClientPage from "./ClientPage";
 
-export default function Home() {
-  return (
-    <>
-      <Hero />
-      <Problems />
-      <Services />
-      <Process />
-      <ContactForm />
-      <CTA />
-    </>
-  );
+export const metadata: Metadata = {
+  title: "Consultora Integral en Seguridad e Higiene y Emergencias | PREVITEC",
+  description: "Soluciones técnicas en prevención, seguridad laboral, capacitación y respuesta ante emergencias en el Litoral argentino.",
+};
+
+export default function Page() {
+  return <ClientPage />;
 }
