@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ShieldAlert } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,10 @@ export default function NavBar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isHome = pathname === "/";
+  // Si no estamos en la home, la barra siempre debe ser blanca (isSolid = true)
+  const isSolid = !isHome || scrolled;
 
   const navLinks = [
     { name: "Inicio", href: "/" },
@@ -29,15 +35,15 @@ export default function NavBar() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+        isSolid ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <ShieldAlert className={`w-8 h-8 ${scrolled ? "text-azul" : "text-white"} group-hover:text-cian transition-colors`} />
-            <span className={`font-heading font-bold text-2xl tracking-tight ${scrolled ? "text-azul" : "text-white"}`}>
+            <ShieldAlert className={`w-8 h-8 ${isSolid ? "text-azul" : "text-white"} group-hover:text-cian transition-colors`} />
+            <span className={`font-heading font-bold text-2xl tracking-tight ${isSolid ? "text-azul" : "text-white"}`}>
               PREVITEC
             </span>
           </Link>
@@ -49,7 +55,7 @@ export default function NavBar() {
                 key={link.name}
                 href={link.href}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  scrolled
+                  isSolid
                     ? "text-gris hover:text-azul hover:bg-gray-100"
                     : "text-gray-100 hover:text-white hover:bg-white/10"
                 }`}
@@ -69,7 +75,7 @@ export default function NavBar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md focus:outline-none ${scrolled ? "text-azul" : "text-white"}`}
+              className={`p-2 rounded-md focus:outline-none ${isSolid ? "text-azul" : "text-white"}`}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

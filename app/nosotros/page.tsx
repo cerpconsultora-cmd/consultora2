@@ -125,8 +125,8 @@ export default function NosotrosPage() {
               Con base estratégica en Entre Ríos, PREVITEC tiene capacidad de despliegue rápido y cobertura en todo el Litoral argentino.
             </p>
             <ul className="space-y-4">
-              {["Paraná y Gran Paraná", "Oro Verde y San Benito", "Colonia Avellaneda", "Concordia y Costa del Uruguay"].map((loc, i) => (
-                <li key={i} className="flex items-center gap-3 text-azul font-medium">
+              {["Entre Ríos", "Santa Fe", "Corrientes"].map((loc, i) => (
+                <li key={i} className="flex items-center gap-3 text-azul font-medium text-lg">
                   <CheckCircle className="w-6 h-6 text-cian" />
                   {loc}
                 </li>
