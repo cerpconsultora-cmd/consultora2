@@ -50,11 +50,19 @@ export default function CapacitacionPage() {
             <p className="text-gris leading-relaxed">
               La teoría no salva vidas sin la práctica adecuada. Nuestros cursos están diseñados con un enfoque 80% práctico, utilizando simuladores y escenarios realistas.
             </p>
-            <ul className="space-y-3 pt-4">
-              {["RCP y uso de DEA", "Formación de brigadas de incendio", "Primeros auxilios docentes", "Seguridad laboral técnica"].map((course, i) => (
-                <li key={i} className="flex items-center gap-3 font-medium text-azul">
-                  <GraduationCap className="w-5 h-5 text-cian" />
-                  {course}
+            <ul className="space-y-4 pt-4">
+              {[
+                { name: "Cursos de RCP y uso de DEA", desc: "Cumplimiento de Ley 27.159. Capacitación intensiva con simuladores." },
+                { name: "Formación de Brigadas", desc: "Entrenamiento para el personal designado frente a contingencias en planta." },
+                { name: "Primeros Auxilios Específicos", desc: "Adaptados para docentes, operarios de industria o personal de eventos." },
+                { name: "Capacitaciones Obligatorias SRT", desc: "Cumplimiento del cronograma anual exigido por la Ley 19.587." }
+              ].map((course, i) => (
+                <li key={i} className="flex flex-col gap-1 border-b border-gray-100 pb-3 last:border-0">
+                  <div className="flex items-center gap-3 font-bold text-azul">
+                    <GraduationCap className="w-5 h-5 text-cian" />
+                    {course.name}
+                  </div>
+                  <p className="text-sm text-gris pl-8">{course.desc}</p>
                 </li>
               ))}
             </ul>

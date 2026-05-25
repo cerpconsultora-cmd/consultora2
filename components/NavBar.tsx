@@ -51,6 +51,16 @@ export default function NavBar() {
       ]
     },
     {
+      name: "Recursos",
+      href: "/recursos",
+      subLinks: [
+        { name: "Ver todos los recursos", href: "/recursos" },
+        { name: "Planes de Emergencia (Guía)", href: "/recursos/guia-planes-emergencia" },
+        { name: "Auditoría SST (Checklist)", href: "/recursos/checklist-auditoria-sst" },
+        { name: "Simulacros de Evacuación", href: "/recursos/importancia-simulacros" }
+      ]
+    },
+    {
       name: "Cobertura",
       href: "#",
       subLinks: [

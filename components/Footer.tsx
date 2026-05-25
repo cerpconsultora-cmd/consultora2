@@ -56,6 +56,7 @@ export default function Footer() {
             <h3 className="font-heading font-bold text-white text-lg mb-4">Institucional</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/nosotros" className="hover:text-cian transition-colors">Nuestra Consultora</Link></li>
+              <li><Link href="/recursos" className="hover:text-cian transition-colors">Recursos y Guías</Link></li>
               <li><Link href="/contacto" className="hover:text-cian transition-colors">Contacto</Link></li>
             </ul>
             <h3 className="font-heading font-bold text-white text-lg mt-6 mb-4">Cobertura Local</h3>

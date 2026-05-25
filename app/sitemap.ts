@@ -21,7 +21,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sectores/eventos-masivos",
     "/cobertura/parana",
     "/cobertura/santa-fe",
-    "/cobertura/corrientes"
+    "/cobertura/corrientes",
+    "/recursos",
+    "/recursos/guia-planes-emergencia",
+    "/recursos/checklist-auditoria-sst",
+    "/recursos/importancia-simulacros"
   ];
 
   return staticPages.map((route) => ({

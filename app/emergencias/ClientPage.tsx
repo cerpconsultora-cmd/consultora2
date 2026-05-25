@@ -7,12 +7,12 @@ import FAQ from "@/components/FAQ";
 
 export default function EmergenciasPage() {
   const services = [
-    { title: "RCP y uso de DEA", icon: HeartPulse },
-    { title: "Primeros Auxilios", icon: Stethoscope },
-    { title: "Respuesta Prehospitalaria (APH)", icon: Activity },
-    { title: "Formación de Brigadas", icon: Users },
-    { title: "Simulacros de Evacuación", icon: Siren },
-    { title: "Cobertura Preventiva", icon: Building }
+    { title: "RCP y uso de DEA", icon: HeartPulse, desc: "Cursos prácticos intensivos sobre maniobras de Reanimación Cardiopulmonar y uso seguro de desfibriladores automáticos." },
+    { title: "Primeros Auxilios", icon: Stethoscope, desc: "Capacitación en primera respuesta médica, control de hemorragias y tratamiento inicial de lesiones traumáticas en el lugar." },
+    { title: "Atención Prehospitalaria (APH)", icon: Activity, desc: "Formación avanzada para responder y estabilizar pacientes críticos antes de la llegada de la ambulancia o servicios médicos." },
+    { title: "Formación de Brigadas", icon: Users, desc: "Entrenamiento a medida para empleados designados como primeros intervinientes frente a incendios o incidentes en planta." },
+    { title: "Simulacros de Evacuación", icon: Siren, desc: "Planificación, coordinación y ejecución de simulacros con evaluación técnica de tiempos y rutas de escape." },
+    { title: "Cobertura Preventiva", icon: Building, desc: "Presencia de profesionales y equipo de trauma listos para actuar en eventos masivos, obras de alto riesgo o paradas de planta." }
   ];
 
   return (
@@ -73,7 +73,7 @@ export default function EmergenciasPage() {
                 <item.icon className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-heading font-bold text-azul mb-3">{item.title}</h3>
-              <p className="text-gris text-sm">Desarrollo de capacidades prácticas y teóricas con instructores certificados internacionalmente.</p>
+              <p className="text-gris text-sm leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>
