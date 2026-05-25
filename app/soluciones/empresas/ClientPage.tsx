@@ -18,14 +18,27 @@ export default function ClientPage() {
             <div className="flex items-center gap-3 text-cian font-bold tracking-wide mb-4 text-sm uppercase">
                <ShieldAlert className="w-5 h-5" /> Especialistas por Sector
             </div>
-            <h1 className="text-4xl md:text-6xl font-heading font-bold text-azul mb-6">
-              Soluciones para Empresas
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-azul mb-6">
+              Seguridad e Higiene para Empresas
             </h1>
-            <p className="text-lg text-gris leading-relaxed mb-8">
-              Gestión integral de Higiene y Seguridad Laboral para empresas comerciales y de servicios. Evitá multas y mejorá el clima laboral.
+            <p className="text-lg text-gris leading-relaxed mb-6">
+              Las empresas comerciales, corporativas y de servicios también están expuestas a riesgos laborales e intimaciones de la SRT. Nuestro servicio integral protege a tu personal y resguarda la continuidad de tu negocio.
             </p>
-            <Link href="/contacto" className="inline-flex items-center gap-2 bg-cian text-azul font-bold py-4 px-8 rounded-full hover:bg-yellow-400 transition-colors">
-              Consultar ahora <ArrowRight className="w-5 h-5" />
+            <ul className="space-y-3 mb-8">
+              {[
+                "Atención ante intimaciones de ART/SRT.",
+                "Elaboración de Legajos Técnicos y Mapas de Riesgo.",
+                "Planes de Evacuación para oficinas y locales comerciales.",
+                "Capacitación In Company (RCP, Primeros Auxilios, Ergonomía)."
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2 text-azul font-medium">
+                  <ArrowRight className="w-5 h-5 text-cian shrink-0 mt-0.5" />
+                  <span className="text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link href="/contacto" className="inline-flex items-center gap-2 bg-cian text-azul font-bold py-4 px-8 rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-cian/20">
+              Solicitar Asesoramiento <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
           <motion.div 
@@ -34,8 +47,13 @@ export default function ClientPage() {
             transition={{ delay: 0.2 }}
             className="md:w-1/2"
           >
-            <div className="bg-gray-50 rounded-3xl p-16 flex items-center justify-center border border-gray-100">
-               <Building2 className="w-32 h-32 text-azul opacity-20" />
+            <div className="bg-gradient-to-br from-azul to-blue-900 rounded-3xl p-16 flex flex-col items-center justify-center border border-blue-800 shadow-2xl relative overflow-hidden">
+               <Building2 className="w-32 h-32 text-white/10 absolute -right-4 -bottom-4" />
+               <h3 className="text-2xl font-bold text-white mb-4 relative z-10 text-center">¿Recibiste una inspección?</h3>
+               <p className="text-blue-100 text-center mb-6 relative z-10">Regularizamos la situación documental de tu empresa en tiempo récord para evitar clausuras y recargos.</p>
+               <Link href="/seguridad-higiene/auditorias-sst" className="relative z-10 text-cian hover:text-white font-bold underline underline-offset-4 transition-colors">
+                 Ver Auditorías SST
+               </Link>
             </div>
           </motion.div>
         </div>

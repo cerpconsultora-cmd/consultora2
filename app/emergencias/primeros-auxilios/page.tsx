@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ClientPage from "./ClientPage";
 
 export const metadata: Metadata = {
-  title: "Curso de Primeros Auxilios y Trauma | PREVITEC",
-  description: "Aprende a responder ante accidentes laborales, domésticos o en eventos. Capacitación en primeros auxilios con simuladores.",
+  title: "Curso de Primeros Auxilios para Empresas y Escuelas | PREVITEC",
+  description: "Capacitamos a tu personal en primeros auxilios. Manejo de heridas, fracturas, quemaduras y respuesta ante emergencias médicas laborales.",
 };
 
 export default function Page() {

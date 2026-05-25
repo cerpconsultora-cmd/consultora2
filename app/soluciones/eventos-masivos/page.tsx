@@ -3,7 +3,7 @@ import ClientPage from "./ClientPage";
 
 export const metadata: Metadata = {
   title: "Cobertura Preventiva para Eventos Masivos | PREVITEC",
-  description: "Planes de contingencia, equipos de trauma y cobertura de emergencias para eventos masivos y corporativos.",
+  description: "Especialistas en cobertura sanitaria y preventiva para eventos. Unidades de traslado, paramédicos y planes de contingencia para recitales y ferias.",
 };
 
 export default function Page() {

@@ -6,12 +6,43 @@ import { useState } from "react";
 export default function LeadMagnet({ title, description, pdfName }: { title: string, description: string, pdfName: string }) {
   const [email, setEmail] = useState("");
   const [downloaded, setDownloaded] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleDownload = (e: React.FormEvent) => {
+  const handleDownload = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+
+    setLoading(true);
+
+    try {
+      // 1. Send lead to backend API
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          source: `Lead Magnet Download: ${pdfName}`,
+          email: email
+        })
+      });
+
+      // 2. Trigger UI state
       setDownloaded(true);
-      // Here you would normally send the email to a CRM/API
+      
+      // 3. Auto-download the file
+      const link = document.createElement("a");
+      link.href = `/${pdfName}`;
+      link.download = pdfName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Error al registrar el lead:", error);
+      // Let them download it anyway if the API fails
+      setDownloaded(true);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -39,15 +70,17 @@ export default function LeadMagnet({ title, description, pdfName }: { title: str
               type="email"
               required
               placeholder="Tu correo electrónico profesional"
-              className="flex-1 px-6 py-4 rounded-xl text-azul outline-none focus:ring-2 focus:ring-cian transition-all"
+              className="flex-1 px-6 py-4 rounded-xl bg-white text-azul placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-cian transition-all"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
             />
             <button
               type="submit"
-              className="bg-cian text-azul font-bold px-8 py-4 rounded-xl hover:bg-yellow-400 transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
+              disabled={loading}
+              className="bg-cian text-azul font-bold px-8 py-4 rounded-xl hover:bg-yellow-400 transition-colors flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Descargar PDF
+              {loading ? "Procesando..." : "Descargar PDF"}
             </button>
           </form>
         ) : (
@@ -55,7 +88,7 @@ export default function LeadMagnet({ title, description, pdfName }: { title: str
             <Download className="w-8 h-8" />
             <div>
               <p className="font-bold text-lg">¡Gracias por descargar!</p>
-              <p className="text-sm">Revisa tu bandeja de entrada o haz clic aquí para <a href="#" className="underline">descargar {pdfName}</a> directamente.</p>
+              <p className="text-sm">La descarga debería haber iniciado automáticamente. Si no ocurrió, haz clic aquí para <a href={`/${pdfName}`} download className="underline text-white font-medium hover:text-cian">descargar {pdfName}</a> directamente.</p>
             </div>
           </div>
         )}

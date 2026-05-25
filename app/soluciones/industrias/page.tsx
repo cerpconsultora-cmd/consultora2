@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ClientPage from "./ClientPage";
 
 export const metadata: Metadata = {
-  title: "Seguridad e Higiene para Industrias | PREVITEC",
-  description: "Consultoría y gestión de prevención de riesgos para el sector industrial. Adecuación legal, mapas de riesgo y auditorías.",
+  title: "Seguridad Industrial y Prevención de Riesgos | PREVITEC",
+  description: "Consultora especialista en seguridad industrial. Reducí la siniestralidad de tu planta, cumplí normativas SRT y realizá mediciones ambientales.",
 };
 
 export default function Page() {

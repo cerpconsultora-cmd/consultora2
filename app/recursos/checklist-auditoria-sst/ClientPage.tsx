@@ -18,7 +18,7 @@ export default function ClientPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-5xl font-heading font-bold text-azul mb-6 leading-tight"
         >
-          Checklist: ¿Estás listo para una inspección de la SRT?
+          Checklist Auditoría SST: Prepará a tu empresa
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -26,18 +26,18 @@ export default function ClientPage() {
           transition={{ delay: 0.1 }}
           className="text-xl text-gris mb-12 leading-relaxed"
         >
-          Las multas por incumplimiento en Seguridad e Higiene son altísimas, pero evitables. Conocer los puntos ciegos de tu instalación te permite corregirlos antes de la llegada del inspector.
+          Las multas por incumplimiento en Salud y Seguridad en el Trabajo (SST) son altísimas, pero totalmente evitables. Descargá nuestro checklist de auditoría SST para evaluar internamente los puntos críticos de tu operación.
         </motion.p>
 
-        <div className="prose prose-lg prose-blue max-w-none text-gray-700">
-          <p className="mb-6 leading-relaxed">El Legajo Técnico es el corazón documental de la seguridad en tu empresa. Debe incluir la nómina del personal, las capacitaciones realizadas, el registro de entrega de EPP (Elementos de Protección Personal) y la medición de puesta a tierra.</p>
-          <p className="mb-6 leading-relaxed">Otro punto crítico son las instalaciones eléctricas y el riesgo de incendio. ¿Tenés los extintores cargados y con tarjeta al día? ¿Las luces de emergencia funcionan? ¿Hay cartelería indicativa de salidas?</p>
-          <p className="mb-6 leading-relaxed">No esperes a la intimación. Utilizá nuestro material para realizar una auto-auditoría inicial y luego contactá a nuestros profesionales matriculados para regularizar tu situación.</p>
+        <div className="prose prose-lg prose-blue max-w-none text-gray-700 mb-12">
+          <p className="mb-6 leading-relaxed">El Legajo Técnico es el corazón documental de la seguridad en tu empresa. En una auditoría típica, el inspector solicitará la nómina del personal, constancias de entrega de EPP (Elementos de Protección Personal), y las mediciones ambientales (puesta a tierra, ruido, iluminación).</p>
+          <p className="mb-6 leading-relaxed">Otro punto crítico es la prevención de incendios. ¿Tenés los extintores vigentes y con tarjeta al día? ¿Las luces de emergencia funcionan? ¿Hay cartelería indicativa de salidas y riesgos específicos?</p>
+          <p className="mb-6 leading-relaxed">No esperes a la intimación. Utilizá nuestro <strong>Checklist Auditoría SST</strong> para realizar una autoevaluación estructurada. Una vez que identifiques los desvíos, podés contactar a nuestros profesionales para regularizar tu situación técnica y legal.</p>
         </div>
 
         <LeadMagnet 
           title="Descargá el Checklist de Auditoría SST" 
-          description="Obtené nuestro PDF gratuito con los 50 puntos críticos que todo inspector de la Superintendencia de Riesgos del Trabajo revisa al visitar una planta o comercio." 
+          description="Obtené nuestro PDF gratuito con los 50 puntos críticos que todo inspector de la Superintendencia de Riesgos del Trabajo (SRT) revisa en una auditoría oficial." 
           pdfName="checklist-sst-previtec.pdf" 
         />
       </article>

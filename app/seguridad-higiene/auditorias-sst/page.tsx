@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ClientPage from "./ClientPage";
 
 export const metadata: Metadata = {
-  title: "Auditoría SST: Seguridad e Higiene Laboral | PREVITEC",
-  description: "Servicio integral de auditoría SST (Salud y Seguridad en el Trabajo). Relevamiento, informe técnico y adecuación a la normativa vigente.",
+  title: "Auditorías SST para Empresas | PREVITEC",
+  description: "Servicio especializado de auditorías SST. Evitá multas de la SRT mediante un diagnóstico preciso de seguridad e higiene laboral en tu empresa.",
 };
 
 export default function Page() {

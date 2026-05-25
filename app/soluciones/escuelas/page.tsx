@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ClientPage from "./ClientPage";
 
 export const metadata: Metadata = {
-  title: "Planes de Evacuación y Capacitación en Escuelas | PREVITEC",
-  description: "Primeros auxilios para docentes, RCP, y simulacros de evacuación para instituciones educativas públicas y privadas.",
+  title: "Planes de Evacuación para Escuelas | PREVITEC",
+  description: "Consultora especializada en seguridad para colegios. Diseñamos planes de evacuación para escuelas, capacitamos docentes y organizamos simulacros escolares.",
 };
 
 export default function Page() {

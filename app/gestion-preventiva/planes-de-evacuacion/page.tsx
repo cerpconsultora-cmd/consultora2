@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ClientPage from "./ClientPage";
 
 export const metadata: Metadata = {
-  title: "Planes de Evacuación y Mapas de Riesgo | PREVITEC",
-  description: "Diseño de planes de emergencia y evacuación, simulacros y mapas de riesgo para instituciones, empresas y eventos.",
+  title: "Diseño de Planes de Evacuación y Emergencia | PREVITEC",
+  description: "Elaboramos planes de evacuación para empresas y escuelas. Rutas de escape, cálculo de aforo y mapas de riesgo bajo normativa vigente.",
 };
 
 export default function Page() {

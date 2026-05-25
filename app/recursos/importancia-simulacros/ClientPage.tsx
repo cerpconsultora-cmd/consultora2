@@ -37,8 +37,8 @@ export default function ClientPage() {
 
         <LeadMagnet 
           title="Descargá la Guía de Coordinación de Simulacros" 
-          description="Un manual en PDF con las pautas para organizar un simulacro de evacuación efectivo, los roles de la brigada y los errores más comunes a evitar." 
-          pdfName="manual-simulacros-previtec.pdf" 
+          description="Un manual corporativo en PDF con las pautas exactas para organizar un simulacro de evacuación efectivo, asignar los roles de la brigada y evitar errores comunes." 
+          pdfName="guia-coordinacion-simulacros.pdf" 
         />
       </article>
 

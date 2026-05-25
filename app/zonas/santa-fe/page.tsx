@@ -3,7 +3,7 @@ import ClientPage from "./ClientPage";
 
 export const metadata: Metadata = {
   title: "Consultora de Seguridad e Higiene en Santa Fe | PREVITEC",
-  description: "Servicios de Seguridad Laboral, Planes de Emergencia y Auditorías SST en Santa Fe. Profesionales matriculados a tu disposición.",
+  description: "Empresa de Seguridad Laboral en Santa Fe. Especialistas en polo industrial, agroindustria y comercio. Evitá multas y siniestros con nuestros auditores.",
 };
 
 export default function Page() {

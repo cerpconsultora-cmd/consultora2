@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ClientPage from "./ClientPage";
 
 export const metadata: Metadata = {
-  title: "Por qué y cada cuánto hacer Simulacros de Evacuación | PREVITEC",
-  description: "Todo lo que necesitas saber sobre los simulacros de evacuación en el ámbito laboral y educativo. Descargá el informe técnico.",
+  title: "Guía de Coordinación de Simulacros de Evacuación | PREVITEC",
+  description: "Descargá nuestra Guía de Coordinación de Simulacros. Todo lo que necesitas saber sobre simulacros de evacuación en industrias y escuelas.",
 };
 
 export default function Page() {

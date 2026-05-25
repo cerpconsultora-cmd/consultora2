@@ -18,14 +18,27 @@ export default function ClientPage() {
             <div className="flex items-center gap-3 text-cian font-bold tracking-wide mb-4 text-sm uppercase">
                <ShieldAlert className="w-5 h-5" /> Especialistas por Sector
             </div>
-            <h1 className="text-4xl md:text-6xl font-heading font-bold text-azul mb-6">
-              Eventos Masivos
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-azul mb-6">
+              Cobertura Preventiva para Eventos
             </h1>
-            <p className="text-lg text-gris leading-relaxed mb-8">
-              Garantizá la seguridad de tus asistentes con nuestra cobertura preventiva integral. Desarrollamos planes de contingencia y aportamos brigadas especializadas.
+            <p className="text-lg text-gris leading-relaxed mb-6">
+              La organización de un evento masivo requiere previsión absoluta. Proveemos un esquema integral de seguridad y salud, desde la planificación documental hasta el despliegue de ambulancias y socorristas en el terreno.
             </p>
-            <Link href="/contacto" className="inline-flex items-center gap-2 bg-cian text-azul font-bold py-4 px-8 rounded-full hover:bg-yellow-400 transition-colors">
-              Consultar ahora <ArrowRight className="w-5 h-5" />
+            <ul className="space-y-3 mb-8">
+              {[
+                "Diseño y firma del Plan de Contingencia exigido por el municipio.",
+                "Disposición de Ambulancias UTI (Unidad de Terapia Intensiva Móvil).",
+                "Despliegue de Paramédicos y Socorristas a pie con DEA.",
+                "Puestos Sanitarios Fijos para recitales, congresos y fiestas."
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2 text-azul font-medium">
+                  <ArrowRight className="w-5 h-5 text-cian shrink-0 mt-0.5" />
+                  <span className="text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Link href="/contacto" className="inline-flex items-center gap-2 bg-cian text-azul font-bold py-4 px-8 rounded-xl hover:bg-yellow-400 transition-colors shadow-lg shadow-cian/20">
+              Cotizar Cobertura de mi Evento <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
           <motion.div 
@@ -34,8 +47,13 @@ export default function ClientPage() {
             transition={{ delay: 0.2 }}
             className="md:w-1/2"
           >
-            <div className="bg-gray-50 rounded-3xl p-16 flex items-center justify-center border border-gray-100">
-               <Users className="w-32 h-32 text-azul opacity-20" />
+            <div className="bg-gradient-to-br from-azul to-blue-900 rounded-3xl p-16 flex flex-col items-center justify-center border border-blue-800 shadow-2xl relative overflow-hidden">
+               <Users className="w-32 h-32 text-white/10 absolute -right-4 -bottom-4" />
+               <h3 className="text-2xl font-bold text-white mb-4 relative z-10 text-center">Unidad de Traslado</h3>
+               <p className="text-blue-100 text-center mb-6 relative z-10">Tener paramédicos es fundamental, pero dominar las técnicas de trauma inicial hace la diferencia en eventos de alto riesgo.</p>
+               <Link href="/emergencias/primeros-auxilios" className="relative z-10 text-cian hover:text-white font-bold underline underline-offset-4 transition-colors">
+                 Ver Curso de Trauma
+               </Link>
             </div>
           </motion.div>
         </div>

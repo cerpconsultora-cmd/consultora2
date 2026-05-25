@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import ClientPage from "./ClientPage";
 
 export const metadata: Metadata = {
-  title: "Evaluación de Riesgos Laborales | PREVITEC",
-  description: "Identificación y evaluación de riesgos en el puesto de trabajo. Protegé a tu personal con un diagnóstico preciso.",
+  title: "Evaluación de Riesgos Laborales en Empresas | PREVITEC",
+  description: "Realizamos la evaluación de riesgos laborales en tu planta. Matriz de riesgos, identificación de peligros e IPERC para cumplir con la ley y bajar la siniestralidad.",
 };
 
 export default function Page() {

@@ -18,7 +18,7 @@ export default function ClientPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-5xl font-heading font-bold text-azul mb-6 leading-tight"
         >
-          Cómo diseñar un Plan de Emergencias efectivo
+          Guía Planes de Emergencia: Estructurá tu Plan
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -26,19 +26,19 @@ export default function ClientPage() {
           transition={{ delay: 0.1 }}
           className="text-xl text-gris mb-12 leading-relaxed"
         >
-          Un plan de emergencias no es solo un papel para cumplir con la SRT. Es la diferencia entre un susto y una tragedia. En esta guía te explicamos paso a paso qué debe contener, cómo asignar roles y por qué la Ley 19.587 lo exige.
+          Un Plan de Evacuación es mucho más que un trámite municipal o una exigencia de la ART. Es la herramienta principal para salvar vidas ante un incendio o siniestro.
         </motion.p>
 
-        <div className="prose prose-lg prose-blue max-w-none text-gray-700">
-          <p className="mb-6 leading-relaxed">Las emergencias médicas, incendios o amenazas no avisan. Tener un plan estructurado garantiza que cada empleado sepa exactamente qué hacer, adónde ir y a quién reportar.</p>
-          <p className="mb-6 leading-relaxed">Según la normativa vigente, todo establecimiento con personal en relación de dependencia debe contar con un Plan de Evacuación aprobado por Defensa Civil o Bomberos.</p>
-          <p className="mb-6 leading-relaxed">Los tres pilares de un buen plan son: 1) Análisis de riesgos (qué puede pasar). 2) Asignación de roles (quién hace qué). 3) Vías de escape y punto de encuentro seguro.</p>
+        <div className="prose prose-lg prose-blue max-w-none text-gray-700 mb-12">
+          <p className="mb-6 leading-relaxed">Nuestra <strong>guía de planes de emergencia</strong> te enseña cómo estructurar las bases de un plan sólido. En un contexto de crisis corporativa o industrial, el pánico es el principal enemigo. Tener protocolos claros define quién toma el liderazgo, por dónde se evacúa y cómo se contiene la emergencia primaria.</p>
+          <p className="mb-6 leading-relaxed">Según la normativa vigente (Ley 19.587), todo establecimiento comercial o industrial debe contar con un Plan de Evacuación firmado por un profesional y aprobado por Bomberos o Defensa Civil local.</p>
+          <p className="mb-6 leading-relaxed">Los pilares que desarrollamos en este PDF gratuito incluyen: Análisis de Riesgos y Puntos Críticos (IPERC), Asignación del Líder de Evacuación y Brigadistas, Trazado de Vías de Escape y definición del Punto de Encuentro Seguro.</p>
         </div>
 
         <LeadMagnet 
-          title="Descargá la Plantilla de Plan de Emergencias" 
-          description="Recibí en tu correo un PDF gratuito con el esqueleto oficial para armar el plan de tu empresa, junto a un checklist de control de extintores." 
-          pdfName="plantilla-emergencias-previtec.pdf" 
+          title="Descargá la Guía de Planes de Emergencia" 
+          description="Recibí en tu correo un PDF gratuito con el esquema paso a paso para desarrollar el plan de contingencia de tu empresa, más un checklist de control de salidas de emergencia." 
+          pdfName="guia-emergencias-previtec.pdf" 
         />
       </article>
 
