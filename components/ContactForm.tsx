@@ -14,9 +14,14 @@ export default function ContactForm() {
     const form = new FormData(e.currentTarget);
     
     try {
-      await fetch("/api/contact", {
+      await fetch("https://formspree.io/f/xnjrgnow", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
         body: JSON.stringify({
+          source: "Formulario de Contacto Principal",
           nombre: form.get("nombre"),
           telefono: form.get("telefono"),
           mensaje: form.get("mensaje"),

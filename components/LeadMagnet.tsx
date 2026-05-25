@@ -15,15 +15,17 @@ export default function LeadMagnet({ title, description, pdfName }: { title: str
     setLoading(true);
 
     try {
-      // 1. Send lead to backend API
-      await fetch("/api/contact", {
+      // 1. Send lead to Formspree
+      await fetch("https://formspree.io/f/xnjrgnow", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify({
-          source: `Lead Magnet Download: ${pdfName}`,
-          email: email
+          source: `Descarga de Guía: ${title}`,
+          email: email,
+          pdfName: pdfName
         })
       });
 
