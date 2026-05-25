@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ShieldAlert } from "lucide-react";
+import { Menu, X, ShieldAlert, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -20,16 +21,44 @@ export default function NavBar() {
   }, []);
 
   const isHome = pathname === "/";
-  // Si no estamos en la home, la barra siempre debe ser blanca (isSolid = true)
   const isSolid = !isHome || scrolled;
 
   const navLinks = [
     { name: "Inicio", href: "/" },
     { name: "Nosotros", href: "/nosotros" },
-    { name: "Seguridad e Higiene", href: "/seguridad-higiene" },
-    { name: "Emergencias", href: "/emergencias" },
-    { name: "Capacitación", href: "/capacitacion" },
-    { name: "Gestión Preventiva", href: "/gestion-preventiva" },
+    { 
+      name: "Servicios", 
+      href: "#",
+      subLinks: [
+        { name: "Seguridad e Higiene", href: "/seguridad-higiene" },
+        { name: "Respuesta a Emergencias", href: "/emergencias" },
+        { name: "Capacitación Técnica", href: "/capacitacion" },
+        { name: "Gestión Preventiva", href: "/gestion-preventiva" },
+        { name: "Auditorías SST", href: "/servicios/auditoria-sst" },
+        { name: "Planes de Evacuación", href: "/servicios/planes-de-evacuacion" },
+        { name: "Cursos de RCP", href: "/capacitacion/curso-rcp" },
+        { name: "Primeros Auxilios", href: "/capacitacion/primeros-auxilios" }
+      ]
+    },
+    {
+      name: "Sectores",
+      href: "#",
+      subLinks: [
+        { name: "Industrias y Plantas", href: "/sectores/industrias" },
+        { name: "Empresas y PyMEs", href: "/sectores/empresas" },
+        { name: "Escuelas", href: "/sectores/escuelas" },
+        { name: "Eventos Masivos", href: "/sectores/eventos-masivos" }
+      ]
+    },
+    {
+      name: "Cobertura",
+      href: "#",
+      subLinks: [
+        { name: "Paraná", href: "/cobertura/parana" },
+        { name: "Santa Fe", href: "/cobertura/santa-fe" },
+        { name: "Corrientes", href: "/cobertura/corrientes" }
+      ]
+    }
   ];
 
   return (
@@ -51,17 +80,46 @@ export default function NavBar() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-1 lg:space-x-4 items-center">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isSolid
-                    ? "text-gris hover:text-azul hover:bg-gray-100"
-                    : "text-gray-100 hover:text-white hover:bg-white/10"
-                }`}
-              >
-                {link.name}
-              </Link>
+              <div key={link.name} className="relative group">
+                {link.subLinks ? (
+                  <button className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    isSolid
+                      ? "text-gris hover:text-azul hover:bg-gray-100"
+                      : "text-gray-100 hover:text-white hover:bg-white/10"
+                  }`}>
+                    {link.name}
+                    <ChevronDown className="w-4 h-4" />
+                  </button>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      isSolid
+                        ? "text-gris hover:text-azul hover:bg-gray-100"
+                        : "text-gray-100 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                )}
+                
+                {/* Desktop Dropdown */}
+                {link.subLinks && (
+                  <div className="absolute left-0 top-full mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top translate-y-2 group-hover:translate-y-0">
+                    <div className="py-2">
+                      {link.subLinks.map((subLink) => (
+                        <Link
+                          key={subLink.name}
+                          href={subLink.href}
+                          className="block px-4 py-2 text-sm text-gris hover:text-azul hover:bg-gray-50"
+                        >
+                          {subLink.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
             <Link
               href="/contacto"
@@ -90,23 +148,57 @@ export default function NavBar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white shadow-xl absolute w-full overflow-hidden"
+            className="md:hidden bg-white shadow-xl absolute w-full overflow-hidden max-h-[85vh] overflow-y-auto"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-3 rounded-md text-base font-medium text-gris hover:text-azul hover:bg-gray-50 border-b border-gray-100 last:border-none"
-                >
-                  {link.name}
-                </Link>
+                <div key={link.name}>
+                  {link.subLinks ? (
+                    <div>
+                      <button 
+                        onClick={() => setOpenMobileDropdown(openMobileDropdown === link.name ? null : link.name)}
+                        className="w-full flex justify-between items-center px-3 py-3 rounded-md text-base font-medium text-gris hover:text-azul hover:bg-gray-50 border-b border-gray-100"
+                      >
+                        {link.name}
+                        <ChevronDown className={\`w-5 h-5 transition-transform \${openMobileDropdown === link.name ? 'rotate-180' : ''}\`} />
+                      </button>
+                      <AnimatePresence>
+                        {openMobileDropdown === link.name && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden bg-gray-50"
+                          >
+                            {link.subLinks.map((subLink) => (
+                              <Link
+                                key={subLink.name}
+                                href={subLink.href}
+                                onClick={() => setIsOpen(false)}
+                                className="block pl-8 pr-3 py-3 text-sm text-gris hover:text-azul border-b border-gray-100 last:border-none"
+                              >
+                                {subLink.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block px-3 py-3 rounded-md text-base font-medium text-gris hover:text-azul hover:bg-gray-50 border-b border-gray-100"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
+                </div>
               ))}
               <Link
                 href="/contacto"
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center mt-4 px-5 py-3 rounded-md bg-azul text-white font-medium text-base hover:bg-opacity-90"
+                className="block w-full text-center mt-6 px-5 py-3 rounded-md bg-azul text-white font-medium text-base hover:bg-opacity-90"
               >
                 Solicitar Asesoramiento
               </Link>
