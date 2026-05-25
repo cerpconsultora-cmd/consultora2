@@ -23,6 +23,7 @@ export default function ContactForm() {
         body: JSON.stringify({
           source: "Formulario de Contacto Principal",
           nombre: form.get("nombre"),
+          email: form.get("email"),
           telefono: form.get("telefono"),
           mensaje: form.get("mensaje"),
         })
@@ -91,14 +92,25 @@ export default function ContactForm() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-azul ml-1">WhatsApp / Teléfono</label>
+                    <label className="text-sm font-medium text-azul ml-1">Correo Electrónico</label>
                     <input 
                       required
-                      name="telefono" 
-                      placeholder="+54 9 ..." 
+                      type="email"
+                      name="email" 
+                      placeholder="tucorreo@empresa.com" 
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-cian focus:border-transparent outline-none transition-all"
                     />
                   </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-azul ml-1">WhatsApp / Teléfono</label>
+                  <input 
+                    required
+                    name="telefono" 
+                    placeholder="+54 9 ..." 
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-cian focus:border-transparent outline-none transition-all"
+                  />
                 </div>
 
                 <div className="space-y-2">
