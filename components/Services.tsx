@@ -132,8 +132,8 @@ export default function Services() {
                 <p className="text-sm font-bold text-azul uppercase">Servicios y Recursos sugeridos:</p>
                 {solution.links.map((link, i) => (
                   <Link key={i} href={link.href} className="flex items-center gap-2 group">
-                    <ArrowRight className={\`w-4 h-4 \${link.isResource ? "text-cian" : "text-gris"} group-hover:translate-x-1 transition-transform\`} />
-                    <span className={\`text-sm font-medium \${link.isResource ? "text-cian group-hover:text-azul" : "text-gris group-hover:text-azul"} transition-colors\`}>
+                    <ArrowRight className={`w-4 h-4 ${link.isResource ? "text-cian" : "text-gris"} group-hover:translate-x-1 transition-transform`} />
+                    <span className={`text-sm font-medium ${link.isResource ? "text-cian group-hover:text-azul" : "text-gris group-hover:text-azul"} transition-colors`}>
                       {link.text}
                     </span>
                   </Link>

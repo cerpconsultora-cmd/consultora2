@@ -70,7 +70,7 @@ export default function ClientPage() {
              <h3 className="text-xl font-heading font-bold text-azul mb-4">¿Qué incluye nuestro servicio integral?</h3>
              <ul className="space-y-4 mb-8">
                {[
-                 "Planimetría y diseño de planos "Usted está aquí" según normas IRAM.",
+                 "Planimetría y diseño de planos 'Usted está aquí' según normas IRAM.",
                  "Cálculo de factor de ocupación y ancho de salidas de emergencia.",
                  "Definición de roles de emergencia (Líder, comunicaciones, corte de suministros).",
                  "Armado del Manual de Contingencias y capacitación de las Brigadas Internas."
