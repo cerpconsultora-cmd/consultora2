@@ -50,28 +50,45 @@ export default function ClientPage() {
       </section>
 
       <section className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
            <div>
-             <h2 className="text-3xl font-heading font-bold text-azul mb-6">Por qué elegir a PREVITEC</h2>
-             <p className="text-gris leading-relaxed mb-8">
-               Nuestra metodología se basa en la experiencia técnica y legal de campo. No ofrecemos soluciones enlatadas, evaluamos tu situación real.
+             <h2 className="text-3xl font-heading font-bold text-azul mb-6">El entrenamiento que evita tragedias</h2>
+             <p className="text-gris leading-relaxed mb-6">
+               Un plan escrito no sirve de nada si el personal entra en pánico durante una emergencia real. Los simulacros de evacuación (obligatorios al menos una vez al año según la legislación argentina) miden la reacción humana, los tiempos de escape y la eficacia de las alarmas.
              </p>
-             <ul className="space-y-4">
-               {["Diagnóstico preciso y adaptado.", "Instructores y profesionales matriculados.", "Validación legal (SRT/ART).", "Implementación rápida y efectiva."].map((ben, i) => (
-                 <li key={i} className="flex items-center gap-3 font-medium text-azul">
-                   <CheckCircle2 className="w-6 h-6 text-cian shrink-0" />
-                   {ben}
+             
+             <div className="bg-blanco p-6 rounded-2xl border-l-4 border-cian mb-8 shadow-sm">
+               <h4 className="font-bold text-azul mb-2">Caso de Éxito: Centro Logístico</h4>
+               <p className="text-sm text-gris italic">
+                 "En el primer simulacro, la evacuación tardó 12 minutos y hubo embudos en los molinetes. PREVITEC reasignó las rutas de escape y entrenó a los líderes de sector. Seis meses después, el tiempo de evacuación bajó a 3 minutos y medio, superando el estándar internacional."
+               </p>
+             </div>
+
+             <h3 className="text-xl font-heading font-bold text-azul mb-4">¿Cómo realizamos las prácticas?</h3>
+             <ul className="space-y-4 mb-8">
+               {[
+                 "Planificación sigilosa o anunciada, definiendo hipótesis (incendio, amenaza de bomba, derrame).",
+                 "Uso de humo artificial y efectos sonoros para generar realismo bajo control.",
+                 "Cronometraje de tiempos de respuesta por sector y evaluación del rol de las brigadas.",
+                 "Reunión post-simulacro (Debriefing) y entrega de Informe de Oportunidades de Mejora."
+               ].map((ben, i) => (
+                 <li key={i} className="flex items-start gap-3 font-medium text-azul">
+                   <CheckCircle2 className="w-6 h-6 text-cian shrink-0 mt-0.5" />
+                   <span className="text-sm leading-relaxed">{ben}</span>
                  </li>
                ))}
              </ul>
            </div>
-           <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-heading font-bold text-azul mb-6">Consultá por este servicio</h3>
-              <p className="text-gris mb-8">Dejanos tus datos y un especialista se contactará a la brevedad.</p>
-              <Link href="/contacto" className="w-full inline-flex justify-center items-center gap-2 bg-azul text-white font-bold py-4 px-8 rounded-full hover:bg-cian transition-colors group">
-                Solicitar Presupuesto
+
+           <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100 sticky top-32">
+              <h3 className="text-2xl font-heading font-bold text-azul mb-4">Agendá tu próximo simulacro</h3>
+              <p className="text-gris mb-8">Asegurá el cumplimiento legal anual y prepará a tu equipo. Completá tus datos y armaremos un escenario a medida de tu operación.</p>
+              
+              <Link href="/contacto" className="w-full inline-flex justify-center items-center gap-2 bg-azul text-white font-bold py-4 px-8 rounded-xl hover:bg-cian transition-colors group mb-4 shadow-lg shadow-blue-900/20">
+                Coordinar Simulacro
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
+              <p className="text-xs text-center text-gray-400">Atención directa en Litoral Argentino (Entre Ríos, Santa Fe, Corrientes).</p>
            </div>
         </div>
       </section>

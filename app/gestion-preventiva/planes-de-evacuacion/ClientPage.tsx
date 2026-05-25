@@ -51,30 +51,47 @@ export default function ClientPage() {
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Detailed Content */}
       <section className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
            <div>
-             <h2 className="text-3xl font-heading font-bold text-azul mb-6">Por qué elegir a PREVITEC</h2>
-             <p className="text-gris leading-relaxed mb-8">
-               Nuestra metodología se basa en la experiencia de campo. No ofrecemos soluciones enlatadas, sino que evaluamos la realidad de tus instalaciones para brindarte una respuesta técnica, legal y operativa.
+             <h2 className="text-3xl font-heading font-bold text-azul mb-6">Un papel no salva vidas. Un plan, sí.</h2>
+             <p className="text-gris leading-relaxed mb-6">
+               Desarrollar un Plan de Emergencia y Evacuación es de carácter obligatorio para toda institución comercial, educativa o industrial, exigido tanto por Defensa Civil local como por las normativas de la SRT y Aseguradoras.
              </p>
-             <ul className="space-y-4">
-               {["Diagnóstico preciso y adaptado a tu sector.", "Instructores y auditores matriculados.", "Equipamiento de última generación.", "Certificación con validez legal (ART/SRT)."].map((ben, i) => (
-                 <li key={i} className="flex items-center gap-3 font-medium text-azul">
-                   <CheckCircle2 className="w-6 h-6 text-cian shrink-0" />
-                   {ben}
+             
+             <div className="bg-blanco p-6 rounded-2xl border-l-4 border-cian mb-8 shadow-sm">
+               <h4 className="font-bold text-azul mb-2">Caso de Éxito: Colegio Secundario Privado</h4>
+               <p className="text-sm text-gris italic">
+                 "Teníamos intimación municipal por falta de planos de escape. PREVITEC no solo nos hizo la planimetría aprobada en 15 días, sino que diseñaron roles de acción específicos para los celadores. Logramos la habilitación definitiva del edificio."
+               </p>
+             </div>
+
+             <h3 className="text-xl font-heading font-bold text-azul mb-4">¿Qué incluye nuestro servicio integral?</h3>
+             <ul className="space-y-4 mb-8">
+               {[
+                 "Planimetría y diseño de planos "Usted está aquí" según normas IRAM.",
+                 "Cálculo de factor de ocupación y ancho de salidas de emergencia.",
+                 "Definición de roles de emergencia (Líder, comunicaciones, corte de suministros).",
+                 "Armado del Manual de Contingencias y capacitación de las Brigadas Internas."
+               ].map((ben, i) => (
+                 <li key={i} className="flex items-start gap-3 font-medium text-azul">
+                   <CheckCircle2 className="w-6 h-6 text-cian shrink-0 mt-0.5" />
+                   <span className="text-sm leading-relaxed">{ben}</span>
                  </li>
                ))}
              </ul>
            </div>
-           <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
-              <h3 className="text-2xl font-heading font-bold text-azul mb-6">¿Necesitás cotizar este servicio?</h3>
-              <p className="text-gris mb-8">Dejanos tus datos y un especialista se contactará a la brevedad para asesorarte sin compromiso.</p>
-              <Link href="/contacto" className="w-full inline-flex justify-center items-center gap-2 bg-azul text-white font-bold py-4 px-8 rounded-full hover:bg-cian transition-colors group">
-                Solicitar Presupuesto
+
+           <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-gray-100 sticky top-32">
+              <h3 className="text-2xl font-heading font-bold text-azul mb-4">Regularizá tu establecimiento</h3>
+              <p className="text-gris mb-8">Evitá multas o clausuras por falta de documentación. Contactanos para diagramar el Plan de Evacuación exigido por la normativa vigente.</p>
+              
+              <Link href="/contacto" className="w-full inline-flex justify-center items-center gap-2 bg-azul text-white font-bold py-4 px-8 rounded-xl hover:bg-cian transition-colors group mb-4 shadow-lg shadow-blue-900/20">
+                Solicitar Cotización
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
+              <p className="text-xs text-center text-gray-400">Atención directa en Litoral Argentino (Entre Ríos, Santa Fe, Corrientes).</p>
            </div>
         </div>
       </section>

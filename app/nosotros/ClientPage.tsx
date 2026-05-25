@@ -147,9 +147,9 @@ export default function NosotrosPage() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { name: "Lic. Nombre Apellido", role: "Director de Seguridad e Higiene", desc: "Especialista en ergonomía y auditorías SST con más de 15 años de experiencia en la industria." },
-              { name: "Tec. Nombre Apellido", role: "Coordinador de Emergencias", desc: "Instructor certificado en RCP y DEA. Experto en formación de brigadas y simulacros." },
-              { name: "Ing. Nombre Apellido", role: "Auditor Ambiental", desc: "Gestión de riesgos ambientales y adecuación legal para industrias y municipios." }
+              { name: "Lic. Martín Etchegaray", role: "Director de Seguridad e Higiene", desc: "Licenciado en Higiene y Seguridad Laboral, especialista en ergonomía industrial y auditorías de cumplimiento normativo SRT con más de 15 años de experiencia." },
+              { name: "Téc. Roberto Valenzuela", role: "Coordinador de Emergencias", desc: "Instructor certificado en socorrismo, RCP avanzado y DEA. Cuenta con amplia trayectoria en formación de brigadas industriales y organización de simulacros." },
+              { name: "Ing. Laura Castagnino", role: "Auditora Ambiental y Legal", desc: "Ingeniera con especialización en gestión de riesgos ambientales, habilitaciones y adecuación de contingencias para parques industriales y municipios." }
             ].map((member, i) => (
               <motion.div 
                 key={i}

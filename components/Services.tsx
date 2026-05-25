@@ -1,37 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HardHat, Activity, GraduationCap, ClipboardCheck } from "lucide-react";
+import { Factory, School, Users, Building2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const services = [
+const clientSolutions = [
   {
-    title: "Seguridad e Higiene",
-    description: "Evaluación de riesgos, auditorías SST, procedimientos operativos y gestión documental para empresas.",
-    icon: HardHat,
-    color: "bg-amarillo",
-    href: "/seguridad-higiene"
+    target: "Industrias y Plantas",
+    problem: "Riesgo de clausuras, multas de la SRT y accidentes operativos graves.",
+    solution: "Cumplimiento legal estricto. Evaluación de riesgos en planta, auditorías de seguridad e higiene y formación de brigadas internas.",
+    icon: Factory,
+    links: [
+      { text: "Auditorías SST", href: "/seguridad-higiene/auditorias-sst" },
+      { text: "Evaluación de Riesgos", href: "/seguridad-higiene/evaluacion-de-riesgos" },
+      { text: "Checklist de SRT (Gratis)", href: "/recursos/checklist-auditoria-sst", isResource: true }
+    ]
   },
   {
-    title: "Emergencias",
-    description: "Cobertura preventiva, brigadas, simulacros y respuesta prehospitalaria profesional.",
-    icon: Activity,
-    color: "bg-rojo",
-    href: "/emergencias"
+    target: "Empresas y Corporativos",
+    problem: "Falta de planes de contingencia y personal sin entrenamiento para emergencias médicas.",
+    solution: "Desarrollo de planes de emergencia, capacitación en RCP/DEA para empleados y protocolos de evacuación de oficinas.",
+    icon: Building2,
+    links: [
+      { text: "Cursos de RCP y DEA", href: "/capacitacion/rcp-y-dea" },
+      { text: "Planes de Emergencia", href: "/gestion-preventiva/planes-de-evacuacion" },
+      { text: "Guía de Planes (Gratis)", href: "/recursos/guia-planes-emergencia", isResource: true }
+    ]
   },
   {
-    title: "Capacitación",
-    description: "Cursos empresariales, municipales y escolares en RCP, DEA y primeros auxilios.",
-    icon: GraduationCap,
-    color: "bg-cian",
-    href: "/capacitacion"
+    target: "Escuelas e Instituciones",
+    problem: "Alta responsabilidad civil sobre alumnos ante incidentes y normativas municipales exigentes.",
+    solution: "Diseño de vías de escape, simulacros de evacuación anuales y capacitación en primeros auxilios docentes.",
+    icon: School,
+    links: [
+      { text: "Simulacros de Evacuación", href: "/emergencias/simulacros-de-evacuacion" },
+      { text: "Primeros Auxilios", href: "/emergencias/primeros-auxilios" },
+      { text: "Manual de Simulacros", href: "/recursos/importancia-simulacros", isResource: true }
+    ]
   },
   {
-    title: "Gestión Preventiva",
-    description: "Planes de emergencia, mapas de riesgo, manuales y contingencias institucionales.",
-    icon: ClipboardCheck,
-    color: "bg-gris",
-    href: "/gestion-preventiva"
+    target: "Eventos Masivos y Clubes",
+    problem: "Multitudes expuestas a paros cardíacos súbitos y requisitos obligatorios de habilitación.",
+    solution: "Cobertura preventiva in-situ con áreas protegidas, equipamiento de trauma y desfibriladores automáticos (DEA).",
+    icon: Users,
+    links: [
+      { text: "Cobertura Preventiva", href: "/emergencias" },
+      { text: "Capacitación de Staff", href: "/capacitacion" }
+    ]
   }
 ];
 
@@ -39,46 +54,46 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
+    transition: { staggerChildren: 0.2 }
   }
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100 } }
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
 };
 
 export default function Services() {
   return (
     <section className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-cian font-bold uppercase tracking-wider mb-2"
           >
-            Nuestras Soluciones
+            Matriz de Soluciones
           </motion.p>
           <motion.h2 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-heading font-bold text-azul"
+            className="text-4xl md:text-5xl font-heading font-bold text-azul mb-6"
           >
-            Servicios Integrales
+            Servicios adaptados a tu realidad
           </motion.h2>
-          <motion.div 
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="h-1 w-24 bg-cian mx-auto mt-6 rounded-full"
-          />
+            transition={{ delay: 0.2 }}
+            className="text-gris text-lg"
+          >
+            No ofrecemos enlatados. Entendemos las exigencias legales y los riesgos específicos de tu sector para brindarte exactamente lo que necesitas.
+          </motion.p>
         </div>
 
         <motion.div 
@@ -86,33 +101,45 @@ export default function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
-          {services.map((service, index) => (
-            <Link key={index} href={service.href}>
-              <motion.div 
-                variants={itemVariants}
-                whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-                className="bg-blanco rounded-2xl p-8 h-full border border-gray-100 transition-all duration-300 group"
-              >
-                <div className={`w-16 h-16 rounded-2xl ${service.color} flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <service.icon className="w-8 h-8" />
+          {clientSolutions.map((solution, index) => (
+            <motion.div 
+              key={index}
+              variants={itemVariants}
+              className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-cian/50 transition-all duration-300"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-azul flex items-center justify-center text-white shrink-0">
+                  <solution.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-heading font-bold text-azul mb-3">
-                  {service.title}
+                <h3 className="text-2xl font-heading font-bold text-azul">
+                  {solution.target}
                 </h3>
-                <p className="text-gris leading-relaxed text-sm">
-                  {service.description}
-                </p>
-                
-                <div className="mt-6 flex items-center text-cian font-medium text-sm group-hover:underline">
-                  Conocer más
-                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </motion.div>
-            </Link>
+              </div>
+              
+              <div className="mb-4">
+                <span className="text-rojo font-bold text-sm uppercase tracking-wide">El Problema:</span>
+                <p className="text-gray-600 mt-1">{solution.problem}</p>
+              </div>
+              
+              <div className="mb-8">
+                <span className="text-cian font-bold text-sm uppercase tracking-wide">Nuestra Solución:</span>
+                <p className="text-gray-800 font-medium mt-1">{solution.solution}</p>
+              </div>
+
+              <div className="space-y-3 border-t border-gray-200 pt-6">
+                <p className="text-sm font-bold text-azul uppercase">Servicios y Recursos sugeridos:</p>
+                {solution.links.map((link, i) => (
+                  <Link key={i} href={link.href} className="flex items-center gap-2 group">
+                    <ArrowRight className={\`w-4 h-4 \${link.isResource ? "text-cian" : "text-gris"} group-hover:translate-x-1 transition-transform\`} />
+                    <span className={\`text-sm font-medium \${link.isResource ? "text-cian group-hover:text-azul" : "text-gris group-hover:text-azul"} transition-colors\`}>
+                      {link.text}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
