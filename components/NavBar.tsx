@@ -160,7 +160,7 @@ export default function NavBar() {
                         className="w-full flex justify-between items-center px-3 py-3 rounded-md text-base font-medium text-gris hover:text-azul hover:bg-gray-50 border-b border-gray-100"
                       >
                         {link.name}
-                        <ChevronDown className={\`w-5 h-5 transition-transform \${openMobileDropdown === link.name ? 'rotate-180' : ''}\`} />
+                        <ChevronDown className={`w-5 h-5 transition-transform ${openMobileDropdown === link.name ? 'rotate-180' : ''}`} />
                       </button>
                       <AnimatePresence>
                         {openMobileDropdown === link.name && (
