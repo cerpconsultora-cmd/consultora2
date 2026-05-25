@@ -34,20 +34,20 @@ export default function NavBar() {
         { name: "Respuesta a Emergencias", href: "/emergencias" },
         { name: "Capacitación Técnica", href: "/capacitacion" },
         { name: "Gestión Preventiva", href: "/gestion-preventiva" },
-        { name: "Auditorías SST", href: "/servicios/auditoria-sst" },
-        { name: "Planes de Evacuación", href: "/servicios/planes-de-evacuacion" },
-        { name: "Cursos de RCP", href: "/capacitacion/curso-rcp" },
-        { name: "Primeros Auxilios", href: "/capacitacion/primeros-auxilios" }
+        { name: "Auditorías SST", href: "/seguridad-higiene/auditorias-sst" },
+        { name: "Evaluación de Riesgos", href: "/seguridad-higiene/evaluacion-de-riesgos" },
+        { name: "Simulacros de Evacuación", href: "/emergencias/simulacros-de-evacuacion" },
+        { name: "Planes de Evacuación", href: "/gestion-preventiva/planes-de-evacuacion" }
       ]
     },
     {
-      name: "Sectores",
+      name: "Soluciones",
       href: "#",
       subLinks: [
-        { name: "Industrias y Plantas", href: "/sectores/industrias" },
-        { name: "Empresas y PyMEs", href: "/sectores/empresas" },
-        { name: "Escuelas", href: "/sectores/escuelas" },
-        { name: "Eventos Masivos", href: "/sectores/eventos-masivos" }
+        { name: "Industrias y Plantas", href: "/soluciones/industrias" },
+        { name: "Empresas y PyMEs", href: "/soluciones/empresas" },
+        { name: "Escuelas", href: "/soluciones/escuelas" },
+        { name: "Eventos Masivos", href: "/soluciones/eventos-masivos" }
       ]
     },
     {
@@ -57,16 +57,16 @@ export default function NavBar() {
         { name: "Ver todos los recursos", href: "/recursos" },
         { name: "Planes de Emergencia (Guía)", href: "/recursos/guia-planes-emergencia" },
         { name: "Auditoría SST (Checklist)", href: "/recursos/checklist-auditoria-sst" },
-        { name: "Simulacros de Evacuación", href: "/recursos/importancia-simulacros" }
+        { name: "Importancia Simulacros", href: "/recursos/importancia-simulacros" }
       ]
     },
     {
-      name: "Cobertura",
+      name: "Zonas",
       href: "#",
       subLinks: [
-        { name: "Paraná", href: "/cobertura/parana" },
-        { name: "Santa Fe", href: "/cobertura/santa-fe" },
-        { name: "Corrientes", href: "/cobertura/corrientes" }
+        { name: "Paraná", href: "/zonas/parana" },
+        { name: "Santa Fe", href: "/zonas/santa-fe" },
+        { name: "Corrientes", href: "/zonas/corrientes" }
       ]
     }
   ];

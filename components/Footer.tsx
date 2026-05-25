@@ -33,21 +33,21 @@ export default function Footer() {
               <li><Link href="/emergencias" className="hover:text-cian transition-colors">Respuesta a Emergencias</Link></li>
               <li><Link href="/capacitacion" className="hover:text-cian transition-colors">Capacitación Técnica</Link></li>
               <li><Link href="/gestion-preventiva" className="hover:text-cian transition-colors">Gestión Preventiva</Link></li>
-              <li className="pt-2"><Link href="/servicios/auditoria-sst" className="text-gray-400 hover:text-cian transition-colors">Auditorías SST</Link></li>
-              <li><Link href="/servicios/planes-de-evacuacion" className="text-gray-400 hover:text-cian transition-colors">Planes de Evacuación</Link></li>
-              <li><Link href="/capacitacion/curso-rcp" className="text-gray-400 hover:text-cian transition-colors">Cursos de RCP y DEA</Link></li>
-              <li><Link href="/capacitacion/primeros-auxilios" className="text-gray-400 hover:text-cian transition-colors">Primeros Auxilios</Link></li>
+              <li className="pt-2"><Link href="/seguridad-higiene/auditorias-sst" className="text-gray-400 hover:text-cian transition-colors">Auditorías SST</Link></li>
+              <li><Link href="/gestion-preventiva/planes-de-evacuacion" className="text-gray-400 hover:text-cian transition-colors">Planes de Evacuación</Link></li>
+              <li><Link href="/capacitacion/rcp-y-dea" className="text-gray-400 hover:text-cian transition-colors">Cursos de RCP y DEA</Link></li>
+              <li><Link href="/emergencias/primeros-auxilios" className="text-gray-400 hover:text-cian transition-colors">Primeros Auxilios</Link></li>
             </ul>
           </div>
 
-          {/* Sectores */}
+          {/* Soluciones */}
           <div>
-            <h3 className="font-heading font-bold text-white text-lg mb-4">Sectores</h3>
+            <h3 className="font-heading font-bold text-white text-lg mb-4">Soluciones</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/sectores/industrias" className="hover:text-cian transition-colors">Industrias y Plantas</Link></li>
-              <li><Link href="/sectores/empresas" className="hover:text-cian transition-colors">Empresas y PyMEs</Link></li>
-              <li><Link href="/sectores/escuelas" className="hover:text-cian transition-colors">Instituciones Educativas</Link></li>
-              <li><Link href="/sectores/eventos-masivos" className="hover:text-cian transition-colors">Eventos Masivos</Link></li>
+              <li><Link href="/soluciones/industrias" className="hover:text-cian transition-colors">Industrias y Plantas</Link></li>
+              <li><Link href="/soluciones/empresas" className="hover:text-cian transition-colors">Empresas y PyMEs</Link></li>
+              <li><Link href="/soluciones/escuelas" className="hover:text-cian transition-colors">Instituciones Educativas</Link></li>
+              <li><Link href="/soluciones/eventos-masivos" className="hover:text-cian transition-colors">Eventos Masivos</Link></li>
             </ul>
           </div>
 
@@ -61,9 +61,9 @@ export default function Footer() {
             </ul>
             <h3 className="font-heading font-bold text-white text-lg mt-6 mb-4">Cobertura Local</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/cobertura/parana" className="text-gray-400 hover:text-cian transition-colors">Seguridad en Paraná</Link></li>
-              <li><Link href="/cobertura/santa-fe" className="text-gray-400 hover:text-cian transition-colors">Seguridad en Santa Fe</Link></li>
-              <li><Link href="/cobertura/corrientes" className="text-gray-400 hover:text-cian transition-colors">Seguridad en Corrientes</Link></li>
+              <li><Link href="/zonas/parana" className="text-gray-400 hover:text-cian transition-colors">Seguridad en Paraná</Link></li>
+              <li><Link href="/zonas/santa-fe" className="text-gray-400 hover:text-cian transition-colors">Seguridad en Santa Fe</Link></li>
+              <li><Link href="/zonas/corrientes" className="text-gray-400 hover:text-cian transition-colors">Seguridad en Corrientes</Link></li>
             </ul>
           </div>
 

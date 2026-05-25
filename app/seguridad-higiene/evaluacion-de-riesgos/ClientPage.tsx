@@ -1,86 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-
-const baseAppDir = path.join(__dirname, 'app');
-
-// 1. MIGRATION OF EXISTING FOLDERS
-const moves = [
-  { from: 'servicios/auditoria-sst', to: 'seguridad-higiene/auditorias-sst' },
-  { from: 'servicios/planes-de-evacuacion', to: 'gestion-preventiva/planes-de-evacuacion' },
-  { from: 'capacitacion/curso-rcp', to: 'capacitacion/rcp-y-dea' },
-  { from: 'capacitacion/primeros-auxilios', to: 'emergencias/primeros-auxilios' },
-  { from: 'sectores', to: 'soluciones' },
-  { from: 'cobertura', to: 'zonas' }
-];
-
-moves.forEach(m => {
-  const fromPath = path.join(baseAppDir, m.from);
-  const toPath = path.join(baseAppDir, m.to);
-  
-  if (fs.existsSync(fromPath)) {
-    // Ensure parent dir of target exists
-    fs.mkdirSync(path.dirname(toPath), { recursive: true });
-    fs.renameSync(fromPath, toPath);
-    console.log(`Moved: ${m.from} -> ${m.to}`);
-  }
-});
-
-// Clean up empty servicios dir if it exists
-if (fs.existsSync(path.join(baseAppDir, 'servicios'))) {
-  try {
-    fs.rmdirSync(path.join(baseAppDir, 'servicios'));
-  } catch(e) {}
-}
-
-// 2. CREATE NEW SUBLANDINGS
-const newPages = [
-  {
-    route: 'app/seguridad-higiene/evaluacion-de-riesgos',
-    title: 'Evaluación de Riesgos Laborales | PREVITEC',
-    desc: 'Identificación y evaluación de riesgos en el puesto de trabajo. Protegé a tu personal con un diagnóstico preciso.',
-    heading: 'Evaluación de Riesgos',
-    contentDesc: 'Detectamos los peligros antes de que se conviertan en accidentes. Analizamos cada puesto de trabajo para diseñar medidas preventivas eficaces.',
-    icon: 'ShieldAlert'
-  },
-  {
-    route: 'app/emergencias/formacion-de-brigadas',
-    title: 'Formación de Brigadas de Emergencia | PREVITEC',
-    desc: 'Capacitación teórico-práctica para formar brigadas de incendio y evacuación en empresas e industrias.',
-    heading: 'Brigadas de Emergencia',
-    contentDesc: 'Entrenamos a tu propio personal para ser la primera línea de defensa ante incendios y evacuaciones críticas.',
-    icon: 'Users'
-  },
-  {
-    route: 'app/emergencias/simulacros-de-evacuacion',
-    title: 'Simulacros de Evacuación y Protocolos | PREVITEC',
-    desc: 'Organización, coordinación y evaluación técnica de simulacros de evacuación para cumplir con la legislación.',
-    heading: 'Simulacros de Evacuación',
-    contentDesc: 'Llevamos la teoría a la práctica. Organizamos simulacros realistas para medir tiempos de respuesta y afinar los protocolos de escape.',
-    icon: 'Siren'
-  }
-];
-
-newPages.forEach(page => {
-  const dirPath = path.join(__dirname, page.route);
-  fs.mkdirSync(dirPath, { recursive: true });
-
-  const serverContent = `import { Metadata } from "next";
-import ClientPage from "./ClientPage";
-
-export const metadata: Metadata = {
-  title: "${page.title}",
-  description: "${page.desc}",
-};
-
-export default function Page() {
-  return <ClientPage />;
-}
-`;
-
-  const clientContent = `"use client";
+"use client";
 
 import { motion } from "framer-motion";
-import { ${page.icon}, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ShieldAlert, ArrowRight, CheckCircle2 } from "lucide-react";
 import CTA from "@/components/CTA";
 import Link from "next/link";
 
@@ -104,7 +25,7 @@ export default function ClientPage() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl font-heading font-bold mb-6"
             >
-              ${page.heading}
+              Evaluación de Riesgos
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -112,7 +33,7 @@ export default function ClientPage() {
               transition={{ delay: 0.2 }}
               className="text-lg text-gray-300 leading-relaxed max-w-xl"
             >
-              ${page.contentDesc}
+              Detectamos los peligros antes de que se conviertan en accidentes. Analizamos cada puesto de trabajo para diseñar medidas preventivas eficaces.
             </motion.p>
           </div>
           <motion.div 
@@ -122,7 +43,7 @@ export default function ClientPage() {
             className="md:w-1/3 flex justify-center"
           >
             <div className="w-48 h-48 bg-cian/10 rounded-full flex items-center justify-center border border-cian/20 shadow-2xl shadow-cian/20">
-               <${page.icon} className="w-24 h-24 text-cian" />
+               <ShieldAlert className="w-24 h-24 text-cian" />
             </div>
           </motion.div>
         </div>
@@ -159,9 +80,3 @@ export default function ClientPage() {
     </main>
   );
 }
-`;
-
-  fs.writeFileSync(path.join(dirPath, 'page.tsx'), serverContent);
-  fs.writeFileSync(path.join(dirPath, 'ClientPage.tsx'), clientContent);
-  console.log('Created sublanding:', page.route);
-});
